@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, {useState , useEffect} from "react";
 import { Switch, Route, Redirect, NavLink } from "react-router-dom";
 
 import { AppointmentsPage } from "./containers/appointmentsPage/AppointmentsPage";
-import { ContactsPage } from "./containers/contactsPage/ContactsPage";
+import ContactsPage  from "./containers/contactsPage/ContactsPage";
 
 
 function App() {
@@ -17,43 +17,47 @@ function App() {
      email: "yahoo@gmail.com",
    },
    {
-     contactName: "John Doe",
+     contactName: "Merry Bernards",
      phone: "0414567855",
      email: "yahoo@gmail.com",
    },
  ]);
- const [appointments, setAppointments] = useState([
-   {
-     title: "Dentist",
-     contact: "Jane Doe",
-     date : "25-09-2021",
-     time: "10:30pm",
-   },
- ]);
+ useEffect(() => {
+   setContacts(contacts);
+ }, [])
+ 
+//  const [appointments, setAppointments] = useState([
+//    {
+//      title: "Dentist",
+//      contact: "Jane Doe",
+//      date : "25-09-2021",
+//      time: "10:30pm",
+//    },
+//  ]);
 
   const ROUTES = {
     CONTACTS: "/contacts",
     APPOINTMENTS: "/appointments",
   };
 
-  const addContact = (contactName, phone, email) => {
-    let newContact = {
-      contactName: contactName,
-      phone, 
-      email,
-    };
-    setContacts((prev) => [newContact, ...prev]);
-  };
+  // const addContact = (contactName, phone, email) => {
+  //   let newContact = {
+  //     contactName,
+  //     phone,
+  //     email,
+  //   };
+  //   setContacts((prev) => [newContact, ...prev]);
+  // };
 
-    const addAppointment = (title, contact, date, time) => {
-      let newAppointment = {
-        title,
-        contact,
-        date,
-        time,
-      };
-      setAppointments((prev) => [newAppointment, ...prev]);
-    };
+  //   const addAppointment = (title, contact, date, time) => {
+  //     let newAppointment = {
+  //       title,
+  //       contact,
+  //       date,
+  //       time,
+  //     };
+  //     setAppointments((prev) => [newAppointment, ...prev]);
+  //   };
 
   //console.log(addContacts(contacts));
   /*
@@ -78,13 +82,13 @@ function App() {
           </Route>
           <Route path={ROUTES.CONTACTS}>
              {/* Add props to ContactsPage */}
-            <ContactsPage contacts={contacts} addContact={addContact}/>
-            <ul>{contacts.map(contact => <li key={contact.phone}>{contact.name}</li>)}</ul>  
+            <ContactsPage contacts={contacts} />
+            
           </Route>
-          <Route path={ROUTES.APPOINTMENTS}>
-            {/* Add props to AppointmentsPage */}
-            <AppointmentsPage appointments={appointments} addAppointment={addAppointment} />
-          </Route>
+          {/* <Route path={ROUTES.APPOINTMENTS}> 
+            {/* Add props to AppointmentsPage  */}
+            {/* <ApntmentsPage appointments={appointments} addAppointment={addAppointment} /> */}
+           {/* </Route>  */}
         </Switch>
       </main>
     </>
