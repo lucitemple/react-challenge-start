@@ -5,13 +5,13 @@ export const ContactsPage = () => {
   Define state variables for 
   contact info and duplicate check
   */
- const [contact, setContact] = useState
+ const [contact, setContact] = useState(
    {
      contactName: "Jane Doe",
      phone: "0414567855",
      email: "yahoo@gmail.com",
      isDuplicate: false,
-   };
+   },);
 
   const handleSubmit = (e) => {
     e.preventDefault();
