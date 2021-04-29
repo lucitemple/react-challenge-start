@@ -1,6 +1,6 @@
 import React from "react";
 
-const ContactsPage = ({contacts}) => {
+const ContactsPage = ({contacts}) => {git 
   
   return (
     <div>
