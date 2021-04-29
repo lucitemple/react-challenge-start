@@ -36,7 +36,7 @@ function App() {
     APPOINTMENTS: "/appointments",
   };
 
-  const addContacts = (contactName, phone, email) => {
+  const addContact = (contactName, phone, email) => {
     let newContact = {
       contactName: contactName,
       phone, 
@@ -45,7 +45,7 @@ function App() {
     setContacts((prev) => [newContact, ...prev]);
   };
 
-    const addAppointments = (title, contact, date, time) => {
+    const addAppointment = (title, contact, date, time) => {
       let newAppointment = {
         title,
         contact,
@@ -78,12 +78,12 @@ function App() {
           </Route>
           <Route path={ROUTES.CONTACTS}>
              {/* Add props to ContactsPage */}
-            <ContactsPage />
+            <ContactsPage contacts={contacts} addContact={addContact}/>
             <ul>{contacts.map(contact => <li key={contact.phone}>{contact.name}</li>)}</ul>  
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
             {/* Add props to AppointmentsPage */}
-            <AppointmentsPage />
+            <AppointmentsPage appointments={appointments} addAppointment={addAppointment} />
           </Route>
         </Switch>
       </main>
