@@ -82,14 +82,12 @@ function App() {
           </Route>
           <Route path={ROUTES.CONTACTS}>
              {/* Add props to ContactsPage */}
-            <ContactsPage contacts={contacts} />
-            
+            <ContactsPage contacts={contacts} addContact={addContact}/>  
           </Route>
-          {/* <Route path={ROUTES.APPOINTMENTS}> 
-            {/* Add props to AppointmentsPage  */}
-            {/* <ApntmentsPage appointments={appointments} addAppointment={addAppointment} /> */}
-           {/* </Route>  */}
-        </Switch>
+          <Route path={ROUTES.APPOINTMENTS}>
+            <AppointmentsPage appointments={appointments} addAppointment={addAppointment} contacts={contacts}/>
+          </Route>
+          </Switch>
       </main>
     </>
   );
