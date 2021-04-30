@@ -13,6 +13,7 @@ export const AppointmentForm = ({
   setTime,
   handleSubmit,
 }) => {
+  console.log(contacts);
   // get todays date to be used as input min
   const getTodayString = () => {
     const [month, day, year] = new Date()
@@ -26,24 +27,24 @@ export const AppointmentForm = ({
       <form className="AppointmentForm" onSubmit={handleSubmit}>
         <ContactPicker
           contacts={contacts}
-          onChange={(target) => setContact(target.value)}
+          onChange={(e) => setContact(e.target.value)}
         />
         <input
           type="text"
           value={title}
           placeholder="Title"
-          onChange={(target) => setTitle(target.value)}
+          onChange={(e) => setTitle(e.target.value)}
         />
         <input
           type="date"
           value={date}
           min={getTodayString()}
-          onChange={(target) => setDate(target.value)}
+          onChange={(e) => setDate(e.target.value)}
         />
         <input
           type="time"
           value={time}
-          onChange={(target) => setTime(target.value)}
+          onChange={(e) => setTime(e.target.value)}
         />
         <button>Submit</button>
       </form>

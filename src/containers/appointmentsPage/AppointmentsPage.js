@@ -34,6 +34,7 @@ export const AppointmentsPage = (props) => {
           time={time}
           setTime={setTime}
           handleSubmit={handleSubmit}
+          contacts={props.contacts}
         />
       </section>
       <hr />
