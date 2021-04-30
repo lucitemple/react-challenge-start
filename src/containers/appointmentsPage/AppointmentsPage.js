@@ -11,14 +11,13 @@ export const AppointmentsPage = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add contact info 
-/* 
-    setTitle(e.target.title);
-    setContact(e.target.contact);
-    setDate(e.target.date);
-    setTime(timestamp); */
+    // Add contact info
     props.addAppointment(title, contact, date, time);
-    //clear data - TODO
+    //clear data
+    setTitle("");
+    setContact("");
+    setDate("");
+    setTime("");
   };
 
   return (
