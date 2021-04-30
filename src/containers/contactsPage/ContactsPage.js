@@ -1,6 +1,8 @@
-import React, {useState} from "react";
-
-export const ContactsPage = () => {
+import React, {useState, useEffect} from "react";
+import {ContactForm
+}from "../../components/contactForm/ContactForm";
+import { TileList } from "../../components/tileList/TileList";
+export const ContactsPage = (props) => {
 
   /*
   Define state variables for 
@@ -8,13 +10,7 @@ export const ContactsPage = () => {
   */
   const contacts = props.contacts;
   const addContact = props.addContact;
-//  const [contact, setContact] = useState(
-//    {
-//      contactName: "Jane Doe",
-//      phone: "0414567855",
-//      email: "yahoo@gmail.com",
-//      isDuplicate: false,
-//    },);
+
 // local variables including boolean for duplication check
 const [name, setName] = useState('');
 const [phone, setPhone] = useState('');
@@ -46,10 +42,9 @@ const [duplicate, setDuplicate] = useState(false);
       if (name === contact.name) {
         setDuplicate(true);
       }
-
       return;
     }
-  });
+  },[name,contacts]);
 //   const array1 = ['a', 'b', 'c'];
 // const lett = array1[1]
 // console.log(lett)
