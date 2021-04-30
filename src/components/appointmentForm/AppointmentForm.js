@@ -13,7 +13,6 @@ export const AppointmentForm = ({
   setTime,
   handleSubmit,
 }) => {
-  console.log(contacts);
   // get todays date to be used as input min
   const getTodayString = () => {
     const [month, day, year] = new Date()

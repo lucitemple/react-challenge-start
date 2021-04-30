@@ -1,6 +1,6 @@
 import React from "react";
 
-export const ContactPicker = ({contacts, onChange}) => {
+export const ContactPicker = ({ contacts, onChange }) => {
   return (
     <>
       <label htmlFor="contacts"></label>
@@ -11,12 +11,12 @@ export const ContactPicker = ({contacts, onChange}) => {
         value="no contact selected"
       >
         <option key="default" value="no contact selected">
-          Contact
+          No contact selected
         </option>
-        {contacts.map((ele) => {
+        {contacts.map((contact) => {
           return (
-            <option key={ele.name} value={ele.name}>
-              `${ele.name}`
+            <option key={contact.contactName} value={contact.contactName}>
+              {contact.contactName}
             </option>
           );
         })}
