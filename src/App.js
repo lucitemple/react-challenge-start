@@ -42,7 +42,7 @@ function App() {
       phone, 
       email,
     };
-    setContacts((prev) => [newContact, ...prev]);
+    setContacts((prev) => [...prev, newContact]);
   };
 
     const addAppointment = (title, contact, date, time) => {
@@ -52,7 +52,7 @@ function App() {
         date,
         time,
       };
-      setAppointments((prev) => [newAppointment, ...prev]);
+      setAppointments((prev) => [...prev, newAppointment]);
     };
 
   //console.log(addContacts(contacts));
