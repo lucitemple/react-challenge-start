@@ -1,38 +1,49 @@
-import React, {useState} from "react";
-
-const ContactsPage = ({contacts},{addContacts}) => {
-  /*
-  Define state variables for 
-  contact info and duplicate check
-  */
-  const contacts={
-  contactName:'', 
-  pNumber:'',
-  email:'',
-  isDuplicate: false,
-}
-
+import React, { useState, useEffect } from "react";
+import ContactForm from '../../components/contactForm/ContactForm'
+import TileList from '../../components/tileList/TileList'
+const ContactsPage = ({contacts, addContacts}) => {
+  const [cname, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [duplicate, setDuplicate] = useState(false);
 const handleSubmit = (e) => {
     e.preventDefault();
-    /*
-    Add contact info and clear data
-    if the contact name is not a duplicate
-    */
-   if (isDuplicate)
-   setcontacts(contacts);
+   if (!duplicate){
+     addContacts(cname,phone,email);
+     setName("");
+     setPhone("");
+     setEmail("");
+   } 
   };
+
+  useEffect(() => {
+    const nameIsduplicate =()=> {
+      const searchForDuplicate= contacts.find((contact)=> contact.contactName=== cname);
+       if (searchForDuplicate !== undefined ){
+         return true;
+       }
+       return false ;
+    };
+
+    if (nameIsduplicate()){
+      setDuplicate(true);
+    }else {
+      setDuplicate(false);
+    }
+  
+  }, [cname,contacts,duplicate]);
   return (
-    <div>
+    <>
       <section>
         <h2>Add Contact</h2>
-        <ContactForm contacts={contacts} setContacts={setcontacts} handleSubmit={handleSubmit}/> 
+        <ContactForm cname={cname} setName={setName} phone={phone} setPhone={setPhone} email={email} setEmail={setEmail}  handleSubmit={handleSubmit}/> 
       </section>
       <hr />
       <section>
         <h2>Contacts</h2>
-        <TileList contacts={contacts}/>
+         <TileList tiles={contacts}/> 
       </section>
-    </div>
+    </>
   );
 }
 export default ContactsPage;
