@@ -17,7 +17,7 @@ export const ContactForm = ({
         required />
       {/* phone numer input */}
       <input type="number" placeholder='phone number'
-        pattern="(^\+[0-9]{2}|^\+[0-9]{2}\(0\)|^\(\+[0-9]{2}\)\(0\)|^00[0-9]{2}|^0)([0-9]{9}$|[0-9\-\s]{10}$)" value={phone} onChange={({ target }) => { setPhone(target.value) }} required />
+       pattern="[1-9][0-9]{2}-[1-9][0-9]{2}-[0-9]{4}" value={phone} onChange={({ target }) => { setPhone(target.value) }} required />
       
       {/* ^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,3})|(\(?\d{2,3}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$ */}
       {/* email input  */}
@@ -29,4 +29,3 @@ export const ContactForm = ({
     </form>
   );
 };
-// pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
