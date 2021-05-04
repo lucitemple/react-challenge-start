@@ -1,6 +1,6 @@
 import React from "react";
  const ContactForm = ({
-  name,
+  cname,
   setName,
   phone,
   setPhone,
@@ -12,7 +12,7 @@ import React from "react";
     <form onSubmit={handleSubmit}>
         <label>
           Contact Name:
-          <input type="text" name="name" value={name} onChange={(e)=> setName(e.target.value)}required palceholder="Contact Name"/>
+          <input type="text" name="cname" value={cname} onChange={(e)=> setName(e.target.value)}required palceholder="Contact Name"/>
         </label> 
         <br/>
          <label>
