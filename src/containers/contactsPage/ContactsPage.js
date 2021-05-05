@@ -1,20 +1,11 @@
 import React, {useState, useEffect} from "react";
-import {ContactForm
-}from "../../components/contactForm/ContactForm";
+import ContactForm from "../../components/contactForm/ContactForm";
 import { TileList } from "../../components/tileList/TileList";
-export const ContactsPage = (props) => {
-
-  /*
-  Define state variables for 
-  contact info and duplicate check
-  */
-  const contacts = props.contacts;
-  const addContact = props.addContact;
-
+const ContactsPage = ({contacts,addContacts}) => {
 // local variables including boolean for duplication check
-const [name, setName] = useState('');
-const [phone, setPhone] = useState('');
-const [email, setEmail] = useState('');
+const [cname, setName] = useState("");
+const [phone, setPhone] = useState("");
+const [email, setEmail] = useState("");
 const [duplicate, setDuplicate] = useState(false);
 
   const handleSubmit = (e) => {
@@ -24,12 +15,11 @@ const [duplicate, setDuplicate] = useState(false);
     if the contact name is not a duplicate
     */
     if (!duplicate) {
-
-      addContact(name,phone, email);
+      addContacts(cname,phone, email);
       // reseting values clearing the form
-      setName('');
-      setPhone('');
-      setEmail('');
+      setName("");
+      setPhone("");
+      setEmail("");
     }
   };
 
@@ -37,34 +27,26 @@ const [duplicate, setDuplicate] = useState(false);
   Using hooks, check for contact name in the 
   contacts array variable in props
   */
-  useEffect( () => {
-    for (const contact of contacts) {
-      if (name === contact.name) {
-        setDuplicate(true);
+  useEffect(() => {
+    const nameIsduplicate=()=>{
+    const found= contacts.find((contact)=> contact.cname===cname);
+      if (found!==undefined) {
+        return true;
       }
       return false;
-    }
-  },[name,contacts]);
-//   const array1 = ['a', 'b', 'c'];
-// const lett = array1[1]
-// console.log(lett)
-// let duplicate = false;
+    };
+    if (nameIsduplicate){
+      setDuplicate(true);
+    }else 
+    setDuplicate(false);
+    },[cname,contacts,duplicate]);
 
-// for (const element of array1) {
-//   if(element === lett){
-//     duplicate = true
-//   }else{
-//      duplicate = false;
-//   }
-//   console.log(element);
-//   console.log(duplicate);
-// }
   return (
     <div>
       <section>
         <h2>Add Contact</h2>
         <ContactForm 
-         name={name}
+         name={cname}
           phone={phone}
           email={email}
           setName={setName}
@@ -72,13 +54,14 @@ const [duplicate, setDuplicate] = useState(false);
           setEmail={setEmail}
           handleSubmit={handleSubmit} />
       </section>
-      <hr />
+      <br />
       <section>
         <h2>Contacts</h2>
         <TileList
-          array={props.contacts}
+          tiles={contacts}
         />
       </section>
     </div>
   );
 };
+export default ContactsPage;

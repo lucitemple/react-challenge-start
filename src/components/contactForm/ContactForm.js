@@ -1,8 +1,7 @@
 import React from "react";
 
-export const ContactForm = ({
-  contacts,
-  name,
+const ContactForm = ({
+  cname,
   setName,
   phone,
   setPhone,
@@ -11,22 +10,25 @@ export const ContactForm = ({
   handleSubmit
 }) => {
   return (
-    <form onSubmit={handleSubmit}>
-      {/* name input */}
-    <input type="text" placeholder="name" value={name}
-        onChange={({target}) => {setName(target.value)}}
-        required />
-      {/* phone numer input */}
-      <input type="number" placeholder='phone number'
-       pattern="[1-9][0-9]{2}-[1-9][0-9]{2}-[0-9]{4}" value={phone} onChange={({ target }) => { setPhone(target.value) }} required />
-      
-      {/* ^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,3})|(\(?\d{2,3}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$ */}
-      {/* email input  */}
-
-      <input type="text" placeholder='email' 
-        value={email} onChange={({ target }) => { setEmail(target.value) }} required />
-      
-       <button>Submit</button>
-    </form>
+  <form onSubmit={handleSubmit}>
+      <label>
+      <input type="text" name="cname" value={cname} onChange={(e) => setName(e.target.value)}
+        required placeholder="Contact Name"/>
+        <label/>
+        <br/>
+        <label>
+        <input type="tel" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)}
+        required placeholder="Phone Number"/> 
+        </label>
+        <br/>
+        <label>       
+        <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}
+        required placeholder="Email address"/>
+        </label>
+        <br/>
+        <input type="submit" value="Add Contact" />
+     </form>
   );
 };
+
+default export ContactForm;
