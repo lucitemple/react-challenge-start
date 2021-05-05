@@ -18,7 +18,7 @@ This project was built as part of Codecademy Pro's [Front End Engineer](https://
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). You can learn more in the [Create React App documentation](https://create-react-app.dev/docs/getting-started).
 
 ## Collaborators
-To practice teamwork, version control, git and GitHub processes, we completed this as a group project.
+To practice teamwork, pair-programming, version control, git and GitHub processes, we completed this as a group project.
 * [Luci Temple](https://github.com/lucitemple/)
 * [Amutha](https://github.com/Amutha37)
 * [Saba](https://github.com/lucitemple/react-challenge-start/commits?author=Any22)
