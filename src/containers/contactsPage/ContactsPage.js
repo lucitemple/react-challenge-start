@@ -42,7 +42,7 @@ const [duplicate, setDuplicate] = useState(false);
       if (name === contact.name) {
         setDuplicate(true);
       }
-      return;
+      return false;
     }
   },[name,contacts]);
 //   const array1 = ['a', 'b', 'c'];
@@ -76,9 +76,8 @@ const [duplicate, setDuplicate] = useState(false);
       <section>
         <h2>Contacts</h2>
         <TileList
-          contactArray={props.contacts}
+          array={props.contacts}
         />
-      {/* <TileList {contact = props.contacts}/> */}
       </section>
     </div>
   );
