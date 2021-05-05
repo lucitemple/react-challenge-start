@@ -1,12 +1,12 @@
 import React from "react";
 import { Tile } from '../tile/Tile';
 
-
-export const TileList = ({contactArr}) => {
+// This components receive from appointments and contacts 
+export const TileList = ({array}) => {
   
   return (
     <div>
-      {contactArr.map( (info, index) => <Tile info={info} key={index}/>)}
+      {array.map( (info, index) => <Tile info={info} key={index}/>)}
     </div>
   );
 };

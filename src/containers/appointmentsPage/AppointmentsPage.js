@@ -1,37 +1,30 @@
-
-
-import React from "react";
-import { useState } from 'react';
-import { AppointmentForm } from '../../components/appointmentForm/AppointmentForm';
-import { TileList } from '../../components/tileList/TileList';
+import React, { useState } from "react";
+import { AppointmentForm } from "../../components/appointmentForm/AppointmentForm";
+import { TileList } from "../../components/tileList/TileList";
 
 export const AppointmentsPage = (props) => {
-  // Define state variables for appointment info
-  const appointments = props.appointments;
-  const contacts = props.contacts;
-  const addAppointment = props.addAppointment;
-  // local States
-  const [title, setTitle] = useState('');
-  const [contact, setContact] = useState('');
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
+  /* Define state variables for appointment info */
+  const [title, setTitle] = useState("");
+  const [contact, setContact] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add contact info and clear data 
-    addAppointment(title, contact, date, time);
-    // reseting values
-    setTitle('');
-    setContact('');
-    setDate('');
-    setTime('');
-};
+    // Add contact info
+    props.addAppointment(title, contact, date, time);
+    //clear data
+    setTitle("");
+    setContact("");
+    setDate("");
+    setTime("");
+  };
 
   return (
     <div>
       <section>
         <h2>Add Appointment</h2>
-        <AppointmentForm 
+        <AppointmentForm
           title={title}
           setTitle={setTitle}
           contact={contact}
@@ -41,13 +34,13 @@ export const AppointmentsPage = (props) => {
           time={time}
           setTime={setTime}
           handleSubmit={handleSubmit}
-          contacts={contacts}
+          contacts={props.contacts}
         />
       </section>
       <hr />
       <section>
         <h2>Appointments</h2>
-        <TileList objArr={appointments}/>
+        <TileList array={props.appointments} />
       </section>
     </div>
   );

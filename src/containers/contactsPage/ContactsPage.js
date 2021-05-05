@@ -76,7 +76,7 @@ const [duplicate, setDuplicate] = useState(false);
       <section>
         <h2>Contacts</h2>
         <TileList
-          contactArr={props.contacts}
+          array={props.contacts}
         />
       </section>
     </div>
