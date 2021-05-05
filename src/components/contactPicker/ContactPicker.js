@@ -8,7 +8,7 @@ export const ContactPicker = ({ contacts, onChange }) => {
         name="contacts"
         id="contacts"
         onChange={onChange}
-        value="no contact selected"
+        key={-1}
       >
         <option key="default" value="no contact selected">
           No contact selected
