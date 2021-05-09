@@ -22,17 +22,18 @@ export const ContactForm = ({
         onChange={({ target }) => {
           setName(target.value);
         }}
-        autocomplete="on"
+        autoComplete="on"
         required
       />
       {/* phone numer input */}
       {/* This regex pattern is for Autralia and lineline and mobile numbers. */}
       <input
-        type="number"
+        type="tel"
         placeholder="phone number"
-        pattern="/^\+(?:[0-9] ?){6,14}[0-9]$/"
+        // regex
+        // pattern="\d{3}[\-]\d{3}[\-]\d{4}"
         value={phone}
-         onChange={({ target }) => {
+        onChange={({ target }) => {
           setPhone(target.value);
         }}
         required
@@ -47,9 +48,8 @@ export const ContactForm = ({
           setEmail(target.value);
         }}
         placeholder="example@domain.com"
-        autocapitalize="off"
-        spellcheck="false"
-        inputmode="email"
+        autoCapitalize="none"
+        spellCheck="false"
         pattern="^(?![\.\-_])((?![\-\._][\-\._])[a-z0-9\-\._]){0,63}[a-z0-9]@(?![\-])((?!--)[a-z0-9\-]){0,63}[a-z0-9]\.(|((?![\-])((?!--)[a-z0-9\-]){0,63}[a-z0-9]\.))(|([a-z]{2,14}\.))[a-z]{2,14}$"
         required
       />
