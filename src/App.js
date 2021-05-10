@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Switch, Route, Redirect, NavLink } from "react-router-dom";
-// import './App.css';
-// import { AppointmentsPage } from "./containers/appointmentsPage/AppointmentsPage";
+import './App.css';
+import { AppointmentsPage } from "./containers/appointmentsPage/AppointmentsPage";
 import  { ContactsPage }  from "./containers/contactsPage/ContactsPage";
 
 
@@ -54,7 +54,7 @@ function App() {
             <ContactsPage contacts={contacts} addContact={addContact}/>  
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
-            {/* <AppointmentsPage appointments={appointments} addAppointment={addAppointment} contacts={contacts}/> */}
+             <AppointmentsPage appointments={appointments} addAppointment={addAppointment} contacts={contacts}/>
           </Route>
           </Switch>
       </main>
