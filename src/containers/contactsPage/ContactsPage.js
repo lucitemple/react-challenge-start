@@ -1,83 +1,63 @@
-import React, {useState, useEffect} from "react";
-import {ContactForm
-}from "../../components/contactForm/ContactForm";
+import React, { useState, useEffect } from "react";
+import { ContactForm } from "../../components/contactForm/ContactForm";
 import { TileList } from "../../components/tileList/TileList";
-export const ContactsPage = (props) => {
 
-  /*
-  Define state variables for 
+export const ContactsPage = (props) => {
+  /*Define state variables for 
   contact info and duplicate check
   */
   const contacts = props.contacts;
   const addContact = props.addContact;
 
-// local variables including boolean for duplication check
-const [name, setName] = useState('');
-const [phone, setPhone] = useState('');
-const [email, setEmail] = useState('');
-const [duplicate, setDuplicate] = useState(false);
+  // local variables including boolean for duplication check
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [duplicate, setDuplicate] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    /*
-    Add contact info and clear data
+    /*Add contact info and clear data
     if the contact name is not a duplicate
     */
     if (!duplicate) {
-
-      addContact(name,phone, email);
+      addContact(name, phone, email);
       // reseting values clearing the form
-      setName('');
-      setPhone('');
-      setEmail('');
+      setName("");
+      setPhone("");
+      setEmail("");
     }
   };
-
-  /*
-  Using hooks, check for contact name in the 
+  /* Using hooks, check for contact name in the 
   contacts array variable in props
   */
-  useEffect( () => {
+  useEffect(() => {
     for (const contact of contacts) {
       if (name === contact.name) {
         setDuplicate(true);
       }
       return false;
     }
-  },[name,contacts]);
-//   const array1 = ['a', 'b', 'c'];
-// const lett = array1[1]
-// console.log(lett)
-// let duplicate = false;
+  }, [name, contacts]);
 
-// for (const element of array1) {
-//   if(element === lett){
-//     duplicate = true
-//   }else{
-//      duplicate = false;
-//   }
-//   console.log(element);
-//   console.log(duplicate);
-// }
   return (
     <div>
       <section>
         <h2>Add Contact</h2>
-        <ContactForm 
-         name={name}
+        <ContactForm
+          name={name}
           phone={phone}
           email={email}
           setName={setName}
           setPhone={setPhone}
           setEmail={setEmail}
-          handleSubmit={handleSubmit} />
+          handleSubmit={handleSubmit}
+        />
       </section>
       <hr />
       <section>
         <h2>Contacts</h2>
-        <TileList
-          array={props.contacts}
-        />
+        <TileList array={props.contacts} />
       </section>
     </div>
   );
