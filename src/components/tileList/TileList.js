@@ -1,23 +1,12 @@
 import React from "react";
 import { Tile } from '../tile/Tile';
 
-<<<<<<< HEAD
- const TileList = () => {
-  return (
-    <div>
-      hello
-    </div>
-  );
-};
-export default TileList
-=======
 // This components receive from appointments and contacts 
-export const TileList = ({array}) => {
+export const TileList = () => {
   
   return (
     <div>
-      {array.map( (info, index) => <Tile info={info} key={index}/>)}
+      
     </div>
   );
 };
->>>>>>> master
