@@ -16,7 +16,7 @@ function App() {
   };
 
   // Implement functions to add data to contacts and appointments
-  const addContacts = (contactName, phone, email) => {
+  const addContact = (contactName, phone, email) => {
     setContacts ([...contacts, {
       contactName: contactName,
       phone : phone, 
@@ -26,7 +26,7 @@ function App() {
   };
 
     const addAppointment = (title, contact, date, time) => {
-      setAppointment ([...appointments, {
+      setAppointments ([...appointments, {
         title : title,
         contact:contact,
         date:date,
@@ -51,7 +51,7 @@ function App() {
             <Redirect to={ROUTES.CONTACTS} />
           </Route>
           <Route path={ROUTES.CONTACTS}>
-            <ContactsPage contacts={contacts} addContacts={addContacts}/>  
+            <ContactsPage contacts={contacts} addContacts={addContact}/>  
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
             <AppointmentsPage appointments={appointments} addAppointment={addAppointment} contacts={contacts}/>

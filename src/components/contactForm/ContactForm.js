@@ -1,12 +1,7 @@
 import React from "react";
 
-<<<<<<< HEAD
-const ContactForm = ({
-  cname,
-=======
 export const ContactForm = ({
   name,
->>>>>>> 98b9cffbc1a8b6d266d3d3f64803a08fb978e673
   setName,
   phone,
   setPhone,
@@ -15,26 +10,6 @@ export const ContactForm = ({
   handleSubmit,
 }) => {
   return (
-<<<<<<< HEAD
-  <form onSubmit={handleSubmit}>
-      <label>
-      <input type="text" name="cname" value={cname} onChange={(e) => setName(e.target.value)}
-        required placeholder="Contact Name"/>
-        <label/>
-        <br/>
-        <label>
-        <input type="tel" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)}
-        required placeholder="Phone Number"/> 
-        </label>
-        <br/>
-        <label>       
-        <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}
-        required placeholder="Email address"/>
-        </label>
-        <br/>
-        <input type="submit" value="Add Contact" />
-     </form>
-=======
     // Some name have hyphens, some have apostrophes. Let’s add support for these characters now.
     <form onSubmit={handleSubmit}>
       {/* name input */}
@@ -81,8 +56,5 @@ export const ContactForm = ({
 
       <button>Submit</button>
     </form>
->>>>>>> 98b9cffbc1a8b6d266d3d3f64803a08fb978e673
   );
 };
-
-default export ContactForm;
