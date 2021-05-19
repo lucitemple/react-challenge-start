@@ -5,7 +5,7 @@ export const AppointmentForm = ({
   contacts,
   title,
   setTitle,
-  contact,
+  // contact,
   setContact,
   date,
   setDate,
