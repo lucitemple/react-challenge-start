@@ -31,7 +31,7 @@ export const ContactForm = ({
         type="tel"
         placeholder="phone number"
         // regex
-        // pattern="\d{3}[\-]\d{3}[\-]\d{4}"
+        pattern="(\(+61\)|\+61|\(0[1-9]\)|0[1-9])?( ?-?[0-9]){6,9}"
         value={phone}
         onChange={({ target }) => {
           setPhone(target.value);

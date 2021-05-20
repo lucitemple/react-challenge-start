@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import { Switch, Route, Redirect, NavLink } from "react-router-dom";
-import './App.css';
 import { AppointmentsPage } from "./containers/appointmentsPage/AppointmentsPage";
-import  ContactsPage  from "./containers/contactsPage/ContactsPage";
+import  { ContactsPage } from "./containers/contactsPage/ContactsPage";
 
 
 function App() {
@@ -51,7 +50,7 @@ function App() {
             <Redirect to={ROUTES.CONTACTS} />
           </Route>
           <Route path={ROUTES.CONTACTS}>
-            <ContactsPage contacts={contacts} addContacts={addContact}/>  
+            <ContactsPage contacts={contacts} addContact={addContact}/>  
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
             <AppointmentsPage appointments={appointments} addAppointment={addAppointment} contacts={contacts}/>
