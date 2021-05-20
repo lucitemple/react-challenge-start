@@ -8,7 +8,7 @@ import  { ContactsPage }  from "./containers/contactsPage/ContactsPage";
 function App() {
   //Define state variables for contacts and appointments 
   const [contacts, setContacts] =  useState([]);
-  const [appointments, setAppointment] = useState([]);
+  const [appointments, setAppointments] = useState([]);
 
   const ROUTES = {
     CONTACTS: "/contacts",
@@ -26,7 +26,7 @@ function App() {
   };
 
     const addAppointment = (title, contact, date, time) => {
-      setAppointment ([...appointments, {
+      setAppointments ([...appointments, {
         title : title,
         contact:contact,
         date:date,

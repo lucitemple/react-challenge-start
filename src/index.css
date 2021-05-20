@@ -80,3 +80,16 @@ select {
 .tile-container {
   margin-bottom: 20px;
 }
+
+.checkemail:not(:placeholder-shown):invalid {
+  background-color: pink;
+  box-shadow: 0 0 0 2px red;
+}
+/* :not(:placeholder-shown) = when it is empty, do not take as invalid */
+/* :not(:-ms-placeholder-shown) use for IE11 */
+/* :invalid = it is not followed pattern or maxlength and also if required and not filled */
+/* Note: When autocomplete is on, it is possible the browser force CSS to change the input background and font color, so i used box-shadow for second option*/
+.checkname:not(:placeholder-shown):invalid {
+  background-color: pink;
+  box-shadow: 0 0 0 2px red;
+}

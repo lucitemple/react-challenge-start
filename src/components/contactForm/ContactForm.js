@@ -6,7 +6,7 @@ export const ContactForm = ({
   setPhone,
   email,
   setEmail,
-  handleSubmit
+  handleSubmit,
 }) => {
   return (
     <form onSubmit={handleSubmit}>
@@ -23,7 +23,8 @@ export const ContactForm = ({
         <br/>
         <label>
           Email :
-          <input type="email" name="email" value={email} onChange={(e)=>setEmail(e.target.value)} required placeholder="Email address" />
+          <input type="email" name="email" value={email} onChange={(e)=>setEmail(e.target.value)} autoCapitalize="none" spellCheck="false" required pattern="^(?![\.\-_])((?![\-\._][\-\._])[a-z0-9\-\._]){0,63}[a-z0-9]@(?![\-])((?!--)[a-z0-9\-]){0,63}[a-z0-9]\.(|((?![\-])((?!--)[a-z0-9\-]){0,63}[a-z0-9]\.))(|([a-z]{2,14}\.))[a-z]{2,14}$"
+         placeholder="example@domain.com" />
         </label>
         <br/>
         <input type="submit" value="Submit" />

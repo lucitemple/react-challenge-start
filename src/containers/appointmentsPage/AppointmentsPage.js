@@ -1,40 +1,3 @@
-<<<<<<< HEAD
-// import React from "react";
-
-// // export const AppointmentsPage = ({appointments}) => {
-//   /*
-//   Define state variables for 
-//   appointment info
-//   */
-//    const [appointments, setAppointments] = useState([
-//    {
-//      title: "Dentist",
-//      contact: "Jane Doe",
-//      date : "25-09-2021",
-//      time: "10:30pm",
-//    },
-//  ]);
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     /*
-//     Add contact info and clear data  
-//     */
-   
-//   };
-
-//   return (
-//     <div>
-//       <section>
-//         <h2>Add Appointment</h2>
-//       </section>
-//       <hr />
-//       <section>
-//         <h2>Appointments</h2>
-//       </section>
-//     </div>
-//   );
-// };
-=======
 import React, { useState } from "react";
 import { AppointmentForm } from "../../components/appointmentForm/AppointmentForm";
 import { TileList } from "../../components/tileList/TileList";
@@ -82,4 +45,3 @@ export const AppointmentsPage = (props) => {
     </div>
   );
 };
->>>>>>> master

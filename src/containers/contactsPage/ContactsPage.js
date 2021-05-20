@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from "react";
-import {ContactForm} from '../../components/contactForm/ContactForm'
-import {TileList} from '../../components/tileList/TileList'
-export const ContactsPage = ({contacts, addContact}) => {
+import { ContactForm } from "../../components/contactForm/ContactForm";
+import { TileList } from "../../components/tileList/TileList";
+
+export const ContactsPage = (props) => {
+  /*Define state variables for 
+  contact info and duplicate check
+  */
+  const contacts = props.contacts;
+  const addContact = props.addContact;
+
+  // local variables including boolean for duplication check
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -41,9 +49,7 @@ const handleSubmit = (e) => {
       <br />
       <section>
         <h2>Contacts</h2>
-        <TileList
-          tiles={contacts}
-        />
+        <TileList array={props.contacts} />
       </section>
     </>
   );
